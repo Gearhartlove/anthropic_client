@@ -56,7 +56,7 @@ defmodule AnthropicClient do
     payload = if metadata, do: Map.put(payload, :metadata, metadata), else: payload
 
     if inspect do
-      IO.inspect("payload:\n#{payload}")
+      IO.inspect(payload, label: "Anthropic payload")
     end
 
     # Make the API request
