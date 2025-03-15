@@ -4,7 +4,7 @@ defmodule AnthropicClient do
   """
 
   @base_url "https://api.anthropic.com/v1"
-  @default_model "claude-3-7-sonnet-20250219"
+  @default_model "claude-3-haiku-20240307"
   @default_max_tokens 1024
 
   @doc """
