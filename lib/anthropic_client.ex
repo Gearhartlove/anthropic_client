@@ -39,6 +39,7 @@ defmodule AnthropicClient do
     top_p = Keyword.get(opts, :top_p)
     top_k = Keyword.get(opts, :top_k)
     metadata = Keyword.get(opts, :metadata)
+    inspect = Keyword.get(opts, :inspect)
 
     # Build the request payload
     payload = %{
@@ -53,6 +54,10 @@ defmodule AnthropicClient do
     payload = if top_p, do: Map.put(payload, :top_p, top_p), else: payload
     payload = if top_k, do: Map.put(payload, :top_k, top_k), else: payload
     payload = if metadata, do: Map.put(payload, :metadata, metadata), else: payload
+
+    if inspect do
+      IO.inspect("payload:\n#{payload}")
+    end
 
     # Make the API request
     Req.post(
